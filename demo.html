@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pick a star</title>
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="starRater.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>starRater.js <small>Star rating for Bootstrap</small></h1>
+		</div>
+
+		<h2>Demo</h2>
+		<div>
+			<h4>5 stars - minimum 1</h4>
+			<section id="pick1">
+			</section>
+			<small id="s1">Please rate me</small>
+		</div>
+		<div>
+			<h4>5 stars - no minimum</h4>
+			<section id="pick2">
+			</section>
+			<small id="s2">Please rate me</small>
+		</div>
+		<div>
+			<h4>10 stars</h4>
+			<section id="pick3">
+			</section>
+			<small id="s3">Please rate me</small>
+		</div>
+	</div>
+
+	<script>
+	$("#pick1").starRater();
+	$("#pick2").starRater({ firstEmpty: true });
+	$("#pick3").starRater({ starCount: 10 });
+
+	$("#pick1").on( "countUpdated", function() { $("#s1").text("Number of stars picked: " + $(this).data('count')); });
+	$("#pick2").on( "countUpdated", function() { $("#s2").text("Number of stars picked: " + $(this).data('count')); });
+	$("#pick3").on( "countUpdated", function() { $("#s3").text("Number of stars picked: " + $(this).data('count')); });
+	</script>
+</body>
+</html>
